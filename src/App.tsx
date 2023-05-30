@@ -1,20 +1,27 @@
-// import React from "react";
+import React, { FC, useState } from "react";
+import { AddPizzaForm } from "./components/AddPizzaform";
+import { DispayPizzas } from "./components/DisplayPizzas";
+import { Pizza } from "./models/Pizza";
 import "./App.css";
 
-type PrintTitle = (title: string) => void;
+const App: FC = () => {
+  const [pizzasList, setPizzasList] = useState<Pizza[]>([]);
 
-const printTitle: PrintTitle = (title) => {
-  console.log(title);
+  const addPizza = (newPizza: Pizza) => {
+    setPizzasList([...pizzasList, newPizza]);
+  };
+
+  console.log("pizzasList", pizzasList);
+
+  return (
+    <div className="App">
+      <div className="wrap">
+        <span className="heading">Our Pizza Shop</span>
+        <AddPizzaForm addPizza={addPizza} />
+        <DispayPizzas pizzasList={pizzasList} />
+      </div>{" "}
+    </div>
+  );
 };
-
-printTitle("salami");
-
-// const test: string = "test";
-
-// console.log(test.trim());
-
-function App() {
-  return <div className="App">New App!</div>;
-}
 
 export default App;
