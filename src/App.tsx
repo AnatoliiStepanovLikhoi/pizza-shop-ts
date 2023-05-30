@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import { FC, useState } from "react";
 import { AddPizzaForm } from "./components/AddPizzaform";
 import { DispayPizzas } from "./components/DisplayPizzas";
 import { Pizza } from "./models/Pizza";
