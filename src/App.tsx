@@ -11,6 +11,18 @@ const App: FC = () => {
     setPizzasList([...pizzasList, newPizza]);
   };
 
+  const updatePizza = (newPizza: Pizza) => {
+    setPizzasList(
+      pizzasList.map((pizza) => (pizza.id === newPizza.id ? newPizza : pizza))
+    );
+  };
+
+  const deletePizza = (id: number) => {
+    const newPizzasList = pizzasList.filter((pizza) => pizza.id !== id);
+
+    setPizzasList(newPizzasList);
+  };
+
   console.log("pizzasList", pizzasList);
 
   return (
@@ -18,7 +30,11 @@ const App: FC = () => {
       <div className="wrap">
         <span className="heading">Our Pizza Shop</span>
         <AddPizzaForm addPizza={addPizza} />
-        <DispayPizzas pizzasList={pizzasList} />
+        <DispayPizzas
+          pizzasList={pizzasList}
+          deletePizza={deletePizza}
+          updatePizza={updatePizza}
+        />
       </div>{" "}
     </div>
   );
