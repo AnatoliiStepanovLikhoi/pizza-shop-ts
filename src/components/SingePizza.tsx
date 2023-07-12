@@ -26,7 +26,7 @@ export const SinglePizza: FC<SinglePizzaProps> = ({
 
   return (
     <div className="pizza">
-      <img src={`/images/${pizza.img}`} alt={pizza.title} />
+      <img src={`./images/${pizza.img}`} alt={pizza.title} />
       <h2>{pizza.title}</h2>
       <span>{pizza.price} UAH</span>
 
